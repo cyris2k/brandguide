@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UI Illustrations — AirOps Brand Guide 2.0</title>
+<style>
+  @font-face { font-family:'Serrif'; src:url('fonts/Serrif-Regular.ttf') format('truetype'); font-weight:400; font-style:normal; }
+  @font-face { font-family:'Saans'; src:url('fonts/Saans-Regular.ttf') format('truetype'); font-weight:400; font-style:normal; }
+  @font-face { font-family:'Saans'; src:url('fonts/Saans-Bold.ttf') format('truetype'); font-weight:700; font-style:normal; }
+  @font-face { font-family:'Saans Mono'; src:url('fonts/SaansMono-Medium.ttf') format('truetype'); font-weight:500; font-style:normal; }
+
+  :root {
+    --ink: #131010; --gray: #61605A; --gray-2: #AAA79D;
+    --stone: #D1CEC2; --white: #FFFFFF; --canvas: #F7F6F3;
+    --eyebrow-green: #008038; --hero-bg: #001A0B;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--white); color: var(--ink); font-family: 'Saans','Helvetica Neue',Arial,sans-serif; font-size: 18px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+
+  /* ── Site nav ── */
+  .site-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--white); border-bottom: 1px solid var(--stone);
+    display: flex; justify-content: center; align-items: center; gap: 48px;
+    padding: 20px 0;
+  }
+  .nav-tab {
+    font-family: 'Saans Mono',monospace; font-weight: 500; font-size: 12px;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--gray-2); text-decoration: none; transition: color .15s;
+  }
+  .nav-tab:hover { color: var(--ink); }
+  .nav-tab.active { color: var(--ink); }
+
+  /* ── Hero ── */
+  .hero {
+    height: 100vh; min-height: 560px; background: var(--hero-bg);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative; padding-top: 57px;
+  }
+  .hero-wordmark {
+    font-family: 'Saans','Helvetica Neue',Arial,sans-serif;
+    font-weight: 700;
+    font-size: clamp(100px, 21vw, 360px);
+    letter-spacing: -0.025em;
+    line-height: .9;
+    color: #F7F6F3;
+    user-select: none;
+    opacity: .18;
+  }
+  .hero-label {
+    position: absolute;
+    font-family: 'Saans Mono',monospace; font-weight: 500; font-size: 12px;
+    letter-spacing: .14em; text-transform: uppercase; color: #00FF64;
+  }
+  .hero-last-updated {
+    position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+    font-family: 'Saans Mono',monospace; font-weight: 500; font-size: 11px;
+    letter-spacing: .18em; text-transform: uppercase; color: #00FF64; white-space: nowrap;
+  }
+
+  /* ── Content ── */
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+  .page-body { padding: 96px 0; }
+  .section-eyebrow {
+    font-family: 'Saans Mono',monospace; font-weight: 500; font-size: 12px;
+    letter-spacing: .08em; text-transform: uppercase; color: var(--eyebrow-green);
+    display: block; margin-bottom: 12px;
+  }
+  .section-headline {
+    font-family: 'Serrif',Georgia,serif; font-weight: 400;
+    font-size: clamp(36px,4vw,56px); letter-spacing: -.02em; line-height: 1.05;
+    color: var(--ink); margin-bottom: 16px; text-wrap: balance;
+  }
+  .section-lead { font-size: 18px; color: var(--gray); max-width: 55ch; line-height: 1.55; margin-bottom: 64px; }
+
+  .empty-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--stone);
+  }
+  .empty-cell {
+    background: var(--canvas);
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .empty-label {
+    font-family: 'Saans Mono',monospace; font-weight: 500; font-size: 11px;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--gray-2);
+  }
+
+  /* ── Footer ── */
+  .site-footer {
+    background: #001A0B; padding: 52px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .footer-note { font-family: 'Saans Mono',monospace; font-weight: 500; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #00A642; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <a href="index.html" class="nav-tab">Home</a>
+  <a href="ui-illustrations.html" class="nav-tab active">UI Illustrations</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-wordmark">airops</div>
+  <span class="hero-label">UI Illustrations</span>
+  <span class="hero-last-updated">Last updated June 30th, 2026</span>
+</header>
+
+<!-- CONTENT -->
+<main class="page-body">
+  <div class="wrap">
+    <span class="section-eyebrow">UI Illustrations</span>
+    <h1 class="section-headline">Illustration system</h1>
+    <p class="section-lead">UI illustrations extend the AirOps visual system into product contexts — onboarding, empty states, feature callouts, and in-app storytelling.</p>
+
+    <div class="empty-grid">
+      <div class="empty-cell"><span class="empty-label">Coming soon</span></div>
+      <div class="empty-cell"><span class="empty-label">Coming soon</span></div>
+      <div class="empty-cell"><span class="empty-label">Coming soon</span></div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <span class="footer-note">AirOps Brand Guide · 2.0 · 2026</span>
+  <span class="footer-note">UI Illustrations</span>
+</footer>
+
+</body>
+</html>

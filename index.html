@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AirOps Brand Visual Guide 2.0</title>
+<style>
+  /* ─── Fonts ─── */
+  @font-face { font-family:'Serrif'; src:url('fonts/Serrif-Light.ttf') format('truetype'); font-weight:300; font-style:normal; }
+  @font-face { font-family:'Serrif'; src:url('fonts/Serrif-LightItalic.otf') format('opentype'); font-weight:300; font-style:italic; }
+  @font-face { font-family:'Serrif'; src:url('fonts/Serrif-Regular.ttf') format('truetype'); font-weight:400; font-style:normal; }
+  @font-face { font-family:'Serrif'; src:url('fonts/Serrif-RegularItalic.otf') format('opentype'); font-weight:400; font-style:italic; }
+  @font-face { font-family:'Serrif'; src:url('fonts/Serrif-Medium.ttf') format('truetype'); font-weight:500; font-style:normal; }
+  @font-face { font-family:'Serrif'; src:url('fonts/Serrif-SemiBold.ttf') format('truetype'); font-weight:600; font-style:normal; }
+  @font-face { font-family:'Saans'; src:url('fonts/Saans-Regular.ttf') format('truetype'); font-weight:400; font-style:normal; }
+  @font-face { font-family:'Saans'; src:url('fonts/Saans-Bold.ttf') format('truetype'); font-weight:700; font-style:normal; }
+  @font-face { font-family:'Saans Mono'; src:url('fonts/SaansMono-Medium.ttf') format('truetype'); font-weight:500; font-style:normal; }
+
+  /* ─── Tokens ─── */
+  :root {
+    --ink:     #131010;
+    --ink-2:   #2B2B28;
+    --gray:    #61605A;
+    --gray-2:  #AAA79D;
+    --stone:   #D1CEC2;
+    --white:   #FFFFFF;
+    --canvas:  #F7F6F3;
+    --accent:  #00FF64;
+    --eyebrow-green: #008038;
+    --sp-4:4px; --sp-8:8px; --sp-12:12px; --sp-16:16px;
+    --sp-24:24px; --sp-32:32px; --sp-48:48px; --sp-64:64px;
+    --sp-96:96px; --sp-128:128px;
+  }
+
+  /* ─── Reset ─── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ─── Base ─── */
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--white);
+    color: var(--ink);
+    font-family: 'Saans', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── Type classes ─── */
+  .eyebrow {
+    font-family: 'Saans Mono', monospace;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--eyebrow-green);
+    display: block;
+    margin-bottom: var(--sp-12);
+  }
+  .headline {
+    font-family: 'Serrif', Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -.02em;
+    line-height: 1.05;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .headline-punchy {
+    font-family: 'Saans', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    line-height: 1.05;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .subhead {
+    font-family: 'Saans', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.45;
+    color: var(--ink);
+  }
+  .lead {
+    font-family: 'Serrif', Georgia, serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.4;
+    color: var(--ink);
+    max-width: 65ch;
+    text-wrap: pretty;
+    orphans: 2; widows: 2;
+  }
+  .body-text {
+    font-family: 'Saans', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--ink);
+    max-width: 65ch;
+    text-wrap: pretty;
+    orphans: 2; widows: 2;
+  }
+  .small {
+    font-family: 'Saans Mono', monospace;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+  .figure {
+    font-family: 'Serrif', Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -.02em;
+    color: var(--ink);
+  }
+
+  /* ─── Layout ─── */
+  .site-wrap { max-width: 1280px; margin: 0 auto; padding: 0 var(--sp-48); }
+
+  section { padding: var(--sp-96) 0; border-top: 1px solid var(--stone); }
+  section:first-of-type { border-top: none; }
+
+  .section-header { margin-bottom: var(--sp-64); }
+  .section-header .headline { font-size: clamp(36px, 4vw, 56px); margin-bottom: var(--sp-16); }
+
+  /* ─── Nav ─── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--stone);
+    padding: var(--sp-16) var(--sp-48);
+    display: flex;
+    align-items: center;
+    gap: var(--sp-48);
+  }
+  .nav-logo { display: flex; align-items: center; }
+  .nav-links {
+    display: flex;
+    gap: var(--sp-32);
+    list-style: none;
+    margin-left: auto;
+  }
+  .nav-links a {
+    font-family: 'Saans Mono', monospace;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--gray);
+    text-decoration: none;
+    transition: color .15s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+
+  /* ─── Hero ─── */
+  .hero {
+    background: var(--canvas);
+    padding: var(--sp-128) var(--sp-48);
+    border-bottom: 1px solid var(--stone);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: 'airops';
+    position: absolute;
+    bottom: -20px;
+    right: -30px;
+    font-family: 'Serrif', Georgia, serif;
+    font-weight: 400;
+    font-size: 280px;
+    color: var(--stone);
+    opacity: .35;
+    pointer-events: none;
+    letter-spacing: -.02em;
+    line-height: 1;
+    user-select: none;
+  }
+  .hero-inner { max-width: 1280px; margin: 0 auto; position: relative; z-index: 1; }
+  .hero .headline { font-size: clamp(56px, 7vw, 96px); max-width: 14ch; margin-bottom: var(--sp-24); }
+  .hero .subhead { max-width: 50ch; margin-bottom: var(--sp-48); }
+  .pill-accent {
+    display: inline-flex;
+    align-items: center;
+    background: var(--accent);
+    color: var(--ink);
+    font-family: 'Saans', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    padding: 12px 28px;
+    border-radius: 999px;
+    text-decoration: none;
+    cursor: default;
+  }
+
+  /* ─── Color grid ─── */
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: var(--sp-16);
+  }
+  .swatch {
+    border-radius: 0;
+  }
+  .swatch-chip {
+    height: 80px;
+    border: 1px solid var(--stone);
+  }
+  .swatch-info { padding: var(--sp-12) 0 0; }
+  .swatch-info .token {
+    font-family: 'Saans Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .04em;
+    color: var(--gray);
+    display: block;
+    margin-bottom: 2px;
+  }
+  .swatch-info .hex {
+    font-family: 'Saans Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .swatch-info .role {
+    font-size: 13px;
+    color: var(--gray);
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+
+  /* accent swatch gets a border that reads against the neon */
+  .swatch-chip.accent-chip { border-color: var(--stone); }
+
+  /* ─── Spectrum ramp ─── */
+  .spectrum-row {
+    display: grid;
+    grid-template-columns: 80px repeat(6, 1fr);
+    gap: 0;
+    margin-bottom: var(--sp-8);
+    align-items: center;
+  }
+  .spectrum-label {
+    font-family: 'Saans Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--gray);
+    padding-right: var(--sp-12);
+  }
+  .spectrum-chip {
+    height: 48px;
+  }
+  .spectrum-chip:first-of-type { border-radius: 0; }
+  .spectrum-headers {
+    display: grid;
+    grid-template-columns: 80px repeat(6, 1fr);
+    margin-bottom: var(--sp-8);
+  }
+  .spectrum-headers span {
+    font-family: 'Saans Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--gray-2);
+    text-align: center;
+  }
+  .spectrum-headers span:first-child { text-align: left; }
+
+  /* ─── Typography specimens ─── */
+  .type-specimen {
+    border-top: 1px solid var(--stone);
+    padding: var(--sp-32) 0;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: var(--sp-32);
+    align-items: start;
+  }
+  .type-specimen:first-child { border-top: none; }
+  .type-meta .small { display: block; margin-bottom: var(--sp-4); }
+  .type-meta .type-desc { font-size: 13px; color: var(--gray); line-height: 1.5; }
+
+  /* ─── Component section ─── */
+  .component-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-24);
+    align-items: flex-start;
+    margin-bottom: var(--sp-48);
+  }
+  .component-label {
+    font-family: 'Saans Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--gray-2);
+    margin-top: var(--sp-8);
+  }
+  .component-cell {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-8);
+    align-items: flex-start;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Saans', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    padding: 12px 28px;
+    border-radius: 999px;
+    border: none;
+    cursor: default;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn-primary   { background: var(--accent); color: var(--ink); }
+  .btn-dark      { background: var(--ink); color: #F7F6F3; }
+  .btn-secondary { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+
+  /* Containers / boxes */
+  .container-box {
+    border: 1px solid var(--stone);
+    background: var(--white);
+    padding: var(--sp-24) var(--sp-32);
+    display: inline-block;
+  }
+
+  /* Eyebrow pill — section accent */
+  .accent-pill {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--ink);
+    font-family: 'Saans', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    padding: 10px 24px;
+    border-radius: 999px;
+  }
+
+  /* ─── Stat cards ─── */
+  .stat-cards-row {
+    display: flex;
+    gap: var(--sp-24);
+    flex-wrap: wrap;
+    align-items: flex-end;
+  }
+  .stat-card {
+    border-radius: 24px;
+    padding: 10%;
+    width: 240px;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+  .stat-card-metric {
+    font-family: 'Serrif', Georgia, serif;
+    font-weight: 400;
+    font-size: 64px;
+    letter-spacing: -.02em;
+    line-height: 1;
+    color: var(--ink);
+  }
+  .stat-card-desc {
+    font-family: 'Saans', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--ink);
+    margin-top: var(--sp-8);
+  }
+  .stat-card-logo {
+    font-family: 'Saans Mono', monospace;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    opacity: .55;
+    margin-top: auto;
+    padding-top: var(--sp-24);
+    align-self: flex-start;
+  }
+  /* card variants */
+  .card-green    { background: #00FF64; }
+  .card-cyan     { background: #00EAFF; }
+  .card-orange   { background: #FF6337; }
+  .card-neutral  { background: var(--white); border: 1px solid var(--stone); }
+  .card-dark-text .stat-card-metric,
+  .card-dark-text .stat-card-desc,
+  .card-dark-text .stat-card-logo { color: var(--ink); }
+
+  /* ─── Dark surfaces ─── */
+  .dark-surface {
+    background: #001A0B;
+    padding: var(--sp-64) var(--sp-48);
+    border-radius: 0;
+  }
+  .dark-surface .eyebrow { color: #00FF64; }
+  .dark-surface .headline { color: #F7F6F3; }
+  .dark-surface .subhead { color: #F7F6F3; }
+  .dark-surface .body-text { color: #F7F6F3; max-width: 55ch; }
+
+  /* ─── Logo section ─── */
+  .logo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-32);
+  }
+  .logo-cell {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-24);
+    padding: var(--sp-48);
+    border: 1px solid var(--stone);
+    align-items: flex-start;
+  }
+  .logo-cell.dark-cell {
+    background: #001A0B;
+    border-color: #003818;
+  }
+  .logo-cell-label {
+    font-family: 'Saans Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--gray-2);
+    margin-top: auto;
+  }
+  .logo-cell.dark-cell .logo-cell-label { color: #00A642; }
+
+  /* Symbol squircle */
+  .symbol-tile {
+    width: 64px;
+    height: 64px;
+    background: #001A0B;
+    border-radius: 22%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F7F6F3;
+    font-family: 'Serrif', Georgia, serif;
+    font-weight: 400;
+    font-size: 22px;
+    letter-spacing: -.02em;
+  }
+
+  /* ─── Spacing scale ─── */
+  .spacing-grid { display: flex; flex-direction: column; gap: var(--sp-8); }
+  .spacing-row {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-24);
+  }
+  .spacing-bar {
+    background: var(--accent);
+    height: 20px;
+    border-radius: 0;
+  }
+  .spacing-token {
+    font-family: 'Saans Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .04em;
+    color: var(--gray);
+    width: 60px;
+    flex-shrink: 0;
+  }
+  .spacing-val {
+    font-family: 'Saans Mono', monospace;
+    font-size: 12px;
+    color: var(--gray-2);
+    width: 36px;
+  }
+
+  /* ─── Green ramp ─── */
+  .ramp-row {
+    display: flex;
+    height: 56px;
+    margin-bottom: var(--sp-24);
+    overflow: hidden;
+  }
+  .ramp-chip {
+    flex: 1;
+    position: relative;
+  }
+  .ramp-chip:hover::after {
+    content: attr(data-hex);
+    position: absolute;
+    bottom: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Saans Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    background: rgba(0,0,0,.55);
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 3px;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  /* ─── Voice rules ─── */
+  .do-dont-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-32);
+  }
+  .do-col, .dont-col { display: flex; flex-direction: column; gap: var(--sp-16); }
+  .rule-item {
+    padding: var(--sp-16) var(--sp-24);
+    border-left: 3px solid transparent;
+  }
+  .rule-item.do   { border-left-color: var(--eyebrow-green); background: #EDFFF5; }
+  .rule-item.dont { border-left-color: #FF6337; background: #FFF0EB; }
+  .rule-head {
+    font-family: 'Saans Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin-bottom: var(--sp-4);
+  }
+  .rule-head.do-head   { color: var(--eyebrow-green); }
+  .rule-head.dont-head { color: #B83818; }
+  .rule-text { font-size: 15px; color: var(--ink); line-height: 1.5; }
+
+  /* ─── Checklist ─── */
+  .checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-12);
+  }
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--sp-16);
+    font-size: 16px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .check-num {
+    font-family: 'Saans Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--eyebrow-green);
+    min-width: 24px;
+    padding-top: 2px;
+  }
+
+  /* ─── Footer ─── */
+  .footer {
+    background: var(--canvas);
+    border-top: 1px solid var(--stone);
+    padding: var(--sp-64) var(--sp-48);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-note { font-size: 14px; color: var(--gray); }
+
+  /* ─── Utilities ─── */
+  .mt-8  { margin-top: var(--sp-8); }
+  .mt-16 { margin-top: var(--sp-16); }
+  .mt-24 { margin-top: var(--sp-24); }
+  .mt-32 { margin-top: var(--sp-32); }
+  .mt-48 { margin-top: var(--sp-48); }
+  .mt-64 { margin-top: var(--sp-64); }
+  .mb-8  { margin-bottom: var(--sp-8); }
+  .mb-16 { margin-bottom: var(--sp-16); }
+  .mb-24 { margin-bottom: var(--sp-24); }
+  .mb-32 { margin-bottom: var(--sp-32); }
+  .col-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-48); }
+</style>
+</head>
+<body>
+
+<!-- ─── Navigation ─── -->
+<nav class="nav">
+  <div class="nav-logo">
+    <svg viewBox="0 0 701 245" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:26px;color:#131010" aria-label="AirOps">
+      <path fill="currentColor" d="M644.695 197.57C609.739 197.57 586.261 177.484 584.957 148.528H617.043C617.826 158.702 628.521 169.658 644.695 169.658C657.738 169.658 666.869 163.919 666.869 155.571C666.869 148.528 661.39 144.354 652.26 142.528L631.13 138.093C610.261 133.659 591.218 123.485 591.218 96.8767C591.218 75.7466 610.522 58.0078 641.826 58.0078C671.303 58.0078 694.259 74.1814 697.651 101.05H665.564C663.999 90.0942 652.782 84.3552 641.826 84.3552C631.391 84.3552 623.826 89.0507 623.826 96.8767C623.826 103.398 629.565 107.311 638.434 109.137L659.564 113.572C682.52 118.268 700.259 127.137 700.259 154.789C700.259 178.266 678.086 197.57 644.695 197.57Z"/>
+      <path fill="currentColor" d="M445.32 244.5V60.0947H478.189V76.0075C485.493 65.312 500.624 58.0078 518.362 58.0078C556.97 58.0078 581.753 86.7029 581.753 127.659C581.753 168.875 555.405 197.57 516.015 197.57C500.102 197.57 485.754 191.31 478.189 181.658V244.5H445.32ZM512.363 169.136C533.493 169.136 548.101 152.702 548.101 127.659C548.101 102.877 533.493 86.4421 512.363 86.4421C490.711 86.4421 476.102 102.877 476.102 127.659C476.102 152.702 490.711 169.136 512.363 169.136Z"/>
+      <path fill="currentColor" d="M367.633 169.383C327.46 169.383 298.504 139.905 298.504 99.4712C298.504 59.298 327.46 29.8203 367.633 29.8203C407.545 29.8203 436.762 59.298 436.762 99.4712C436.762 139.905 407.545 169.383 367.633 169.383ZM367.633 140.949C388.763 140.949 403.372 123.992 403.372 99.4712C403.372 74.9499 388.502 58.2546 367.633 58.2546C345.981 58.2546 332.155 75.2108 332.155 99.4712C332.155 123.992 345.981 140.949 367.633 140.949Z"/>
+      <path fill="currentColor" d="M292.405 90.0942C288.492 89.3116 284.318 88.529 279.362 88.529C260.319 88.529 242.58 104.963 242.58 145.658V195.484H209.711V60.0947H242.58V94.8769C246 68 266.84 58.0078 283.275 58.0078C287.188 58.0078 289.796 58.2687 292.405 58.7904V90.0942Z"/>
+      <path fill="currentColor" d="M156.627 195.484V60.0946H189.496V195.484H156.627ZM172.791 44C160.663 44 151.073 34.4103 151.073 22C151.073 9.58973 160.663 0 172.791 0C185.201 0 194.791 9.58973 194.791 22C194.791 34.4103 185.201 44 172.791 44Z"/>
+      <path fill="currentColor" d="M64.6945 197.57C24.2604 197.57 0 168.875 0 127.659C0 86.4421 24.5213 58.0078 64.1727 58.0078C80.8681 58.0078 95.4765 65.0512 103.302 75.4858V60.0947H136.171V195.484H103.302V179.571C97.0417 189.745 82.1724 197.57 64.6945 197.57ZM69.39 169.136C91.0418 169.136 105.389 152.702 105.389 127.659C105.389 102.877 91.0418 86.4421 69.39 86.4421C47.7383 86.4421 33.3907 102.877 33.3907 127.659C33.3907 152.441 47.7383 169.136 69.39 169.136Z"/>
+    </svg>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#color">Color</a></li>
+    <li><a href="#typography">Type</a></li>
+    <li><a href="#logo">Logo</a></li>
+    <li><a href="#components">Components</a></li>
+    <li><a href="#layout">Layout</a></li>
+    <li><a href="#voice">Voice</a></li>
+    <li><a href="#checklist">Checklist</a></li>
+  </ul>
+</nav>
+
+<!-- ─── Hero ─── -->
+<header class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Brand Visual Guide</span>
+    <h1 class="headline hero-headline" style="font-size:clamp(56px,7vw,96px);margin-bottom:var(--sp-24);">AirOps Brand<br>System 2.0</h1>
+    <p class="subhead" style="max-width:48ch;margin-bottom:var(--sp-48);">Warm-neutral foundation. Neon-green signature accent. Serrif + Saans + Saans Mono. The source of truth for every AirOps-facing asset.</p>
+    <span class="pill-accent">2026 Refresh</span>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══════════════════════════════════════════ COLOR ═══ -->
+<section id="color">
+  <div class="site-wrap">
+
+    <div class="section-header">
+      <span class="eyebrow">§1 — Color</span>
+      <h2 class="headline" style="font-size:clamp(36px,4vw,56px);margin-bottom:var(--sp-16);">Stay on-palette — always</h2>
+      <p class="body-text">Use only the exact hex values defined in these palettes. Never invent an off-palette color: no alternate grey, no opacity hacks to fake a new shade. Every color must trace to a token below.</p>
+    </div>
+
+    <!-- Foundation neutrals -->
+    <h3 class="headline-punchy" style="font-size:22px;margin-bottom:var(--sp-24);">Foundation — warm neutrals</h3>
+    <div class="color-grid mb-32">
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#131010;border-color:#2B2B28"></div>
+        <div class="swatch-info"><span class="token">--ink</span><span class="hex">#131010</span><p class="role">All text on light. Near-black, warm.</p></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#2B2B28;border-color:#3a3a35"></div>
+        <div class="swatch-info"><span class="token">--ink-2</span><span class="hex">#2B2B28</span><p class="role">Secondary dark surfaces, strong dividers</p></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#61605A"></div>
+        <div class="swatch-info"><span class="token">--gray</span><span class="hex">#61605A</span><p class="role">Muted/secondary text, captions, metadata</p></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#AAA79D"></div>
+        <div class="swatch-info"><span class="token">--gray-2</span><span class="hex">#AAA79D</span><p class="role">Tertiary text, disabled, faint labels</p></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#D1CEC2"></div>
+        <div class="swatch-info"><span class="token">--stone</span><span class="hex">#D1CEC2</span><p class="role">Rules and dividers (light); container outlines — used sparingly</p></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#FFFFFF"></div>
+        <div class="swatch-info"><span class="token">--white</span><span class="hex">#FFFFFF</span><p class="role">Default light surface. Text sits on plain white.</p></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#F7F6F3"></div>
+        <div class="swatch-info"><span class="token">--canvas</span><span class="hex">#F7F6F3</span><p class="role">Warm off-white ground — covers &amp; marketing</p></div>
+      </div>
+    </div>
+
+    <!-- Signature accent -->
+    <h3 class="headline-punchy" style="font-size:22px;margin-bottom:var(--sp-24);">Signature accent</h3>
+    <div class="color-grid mb-32" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr))">
+      <div class="swatch">
+        <div class="swatch-chip accent-chip" style="background:#00FF64;height:120px"></div>
+        <div class="swatch-info"><span class="token">--accent</span><span class="hex">#00FF64</span><p class="role">Neon green. Main idea OR primary CTA only. <strong>At most one per view.</strong> Zero is fine when there's no CTA.</p></div>
+      </div>
+      <div class="swatch" style="padding:var(--sp-24);background:var(--canvas);border:1px solid var(--stone)">
+        <p class="body-text" style="font-size:15px;color:var(--gray);">The accent earns its power through scarcity. If two elements are neon, neither is the main idea. Restraint reads as premium.</p>
+      </div>
+    </div>
+
+    <!-- Green ramp -->
+    <h3 class="headline-punchy" style="font-size:22px;margin-bottom:var(--sp-16);">Green ramp — signature hue</h3>
+    <p class="body-text mb-24" style="font-size:15px;color:var(--gray);">Hover over a chip to see its hex. <code style="font-family:'Saans Mono',monospace;font-size:13px;">#008038</code> = eyebrow green on light. <code style="font-family:'Saans Mono',monospace;font-size:13px;">#001A0B</code> = deep green for symbol tile and dark-theme grounds.</p>
+    <div class="ramp-row mb-32">
+      <div class="ramp-chip" data-hex="#F8FFFA" style="background:#F8FFFA;border:1px solid #D1CEC2"></div>
+      <div class="ramp-chip" data-hex="#DEF4E7" style="background:#DEF4E7"></div>
+      <div class="ramp-chip" data-hex="#C5EBD4" style="background:#C5EBD4"></div>
+      <div class="ramp-chip" data-hex="#00FF64" style="background:#00FF64"></div>
+      <div class="ramp-chip" data-hex="#00D254" style="background:#00D254"></div>
+      <div class="ramp-chip" data-hex="#00A642" style="background:#00A642"></div>
+      <div class="ramp-chip" data-hex="#008038" style="background:#008038"></div>
+      <div class="ramp-chip" data-hex="#005622" style="background:#005622"></div>
+      <div class="ramp-chip" data-hex="#002914" style="background:#002914"></div>
+      <div class="ramp-chip" data-hex="#001507" style="background:#001507"></div>
+    </div>
+
+    <!-- Secondary spectrum -->
+    <h3 class="headline-punchy" style="font-size:22px;margin-bottom:var(--sp-8);">Secondary spectrum</h3>
+    <p class="body-text mb-24" style="font-size:15px;color:var(--gray);">Six hues × six tones. Default to green. The other five are used equally and sparingly — none becomes a second brand color. Bright tones are never page backgrounds or body text. The one sanctioned home for bright/fluorescent tones is the customer stat card (§7).</p>
+
+    <div class="spectrum-headers">
+      <span></span>
+      <span>Tint</span><span>Light</span><span>Bright</span><span>Mid</span><span>Deep</span><span>Darkest</span>
+    </div>
+    <div class="spectrum-row"><span class="spectrum-label">Green</span>
+      <div class="spectrum-chip" style="background:#EDFFF5;border:1px solid #D1CEC2"></div>
+      <div class="spectrum-chip" style="background:#ADFFD2"></div>
+      <div class="spectrum-chip" style="background:#00FF64"></div>
+      <div class="spectrum-chip" style="background:#008038"></div>
+      <div class="spectrum-chip" style="background:#003818"></div>
+      <div class="spectrum-chip" style="background:#001A0B"></div>
+    </div>
+    <div class="spectrum-row"><span class="spectrum-label">Cyan</span>
+      <div class="spectrum-chip" style="background:#E0FEFF;border:1px solid #D1CEC2"></div>
+      <div class="spectrum-chip" style="background:#9AF5FF"></div>
+      <div class="spectrum-chip" style="background:#00EAFF"></div>
+      <div class="spectrum-chip" style="background:#007A8C"></div>
+      <div class="spectrum-chip" style="background:#003040"></div>
+      <div class="spectrum-chip" style="background:#00131A"></div>
+    </div>
+    <div class="spectrum-row"><span class="spectrum-label">Blue</span>
+      <div class="spectrum-chip" style="background:#EDF2FF;border:1px solid #D1CEC2"></div>
+      <div class="spectrum-chip" style="background:#AEBFFF"></div>
+      <div class="spectrum-chip" style="background:#3E88FF"></div>
+      <div class="spectrum-chip" style="background:#1848C0"></div>
+      <div class="spectrum-chip" style="background:#080F50"></div>
+      <div class="spectrum-chip" style="background:#03051A"></div>
+    </div>
+    <div class="spectrum-row"><span class="spectrum-label">Magenta</span>
+      <div class="spectrum-chip" style="background:#FDE8FF;border:1px solid #D1CEC2"></div>
+      <div class="spectrum-chip" style="background:#F5AAFF"></div>
+      <div class="spectrum-chip" style="background:#FF7DFF"></div>
+      <div class="spectrum-chip" style="background:#9010A0"></div>
+      <div class="spectrum-chip" style="background:#310038"></div>
+      <div class="spectrum-chip" style="background:#16001A"></div>
+    </div>
+    <div class="spectrum-row"><span class="spectrum-label">Orange</span>
+      <div class="spectrum-chip" style="background:#FFF0EB;border:1px solid #D1CEC2"></div>
+      <div class="spectrum-chip" style="background:#FFBBA8"></div>
+      <div class="spectrum-chip" style="background:#FF6337"></div>
+      <div class="spectrum-chip" style="background:#B83818"></div>
+      <div class="spectrum-chip" style="background:#3C1000"></div>
+      <div class="spectrum-chip" style="background:#1A0700"></div>
+    </div>
+    <div class="spectrum-row"><span class="spectrum-label">Yellow</span>
+      <div class="spectrum-chip" style="background:#F8FFE0;border:1px solid #D1CEC2"></div>
+      <div class="spectrum-chip" style="background:#E8F888"></div>
+      <div class="spectrum-chip" style="background:#EDFF2E"></div>
+      <div class="spectrum-chip" style="background:#687800"></div>
+      <div class="spectrum-chip" style="background:#252A00"></div>
+      <div class="spectrum-chip" style="background:#161A00"></div>
+    </div>
+
+    <!-- Color roles table -->
+    <h3 class="headline-punchy mt-64" style="font-size:22px;margin-bottom:var(--sp-24);">Color roles</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-32)">
+      <div>
+        <span class="small mb-16" style="display:block;">Light theme</span>
+        <table style="width:100%;border-collapse:collapse;font-size:15px;">
+          <thead><tr style="border-bottom:1px solid var(--stone)">
+            <th style="text-align:left;padding:8px 0;font-family:'Saans Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-2);font-weight:500">Role</th>
+            <th style="text-align:left;padding:8px 0;font-family:'Saans Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-2);font-weight:500">Value</th>
+          </tr></thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--stone)"><td style="padding:10px 0;color:var(--gray)">All text</td><td style="padding:10px 0;font-family:'Saans Mono',monospace;font-size:13px">#131010</td></tr>
+            <tr style="border-bottom:1px solid var(--stone)"><td style="padding:10px 0;color:var(--gray)">Background (default)</td><td style="padding:10px 0;font-family:'Saans Mono',monospace;font-size:13px">#FFFFFF</td></tr>
+            <tr style="border-bottom:1px solid var(--stone)"><td style="padding:10px 0;color:var(--gray)">Background (warm alt)</td><td style="padding:10px 0;font-family:'Saans Mono',monospace;font-size:13px">#F7F6F3</td></tr>
+            <tr style="border-bottom:1px solid var(--stone)"><td style="padding:10px 0;color:var(--gray)">Rules, containers</td><td style="padding:10px 0;font-family:'Saans Mono',monospace;font-size:13px">#D1CEC2 outline</td></tr>
+            <tr style="border-bottom:1px solid var(--stone)"><td style="padding:10px 0;color:var(--gray)">Eyebrows</td><td style="padding:10px 0;font-family:'Saans Mono',monospace;font-size:13px">#008038</td></tr>
+            <tr><td style="padding:10px 0;color:var(--gray)">Main idea / CTA</td><td style="padding:10px 0;font-family:'Saans Mono',monospace;font-size:13px">#00FF64</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <span class="small mb-16" style="display:block;">Dark theme</span>
+        <table style="width:100%;border-collapse:collapse;font-size:15px;">
+          <thead><tr style="border-bottom:1px solid #003818">
+            <th style="text-align:left;padding:8px 0;font-family:'Saans Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#00A642;font-weight:500">Role</th>
+            <th style="text-align:left;padding:8px 0;font-family:'Saans Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#00A642;font-weight:500">Value</th>
+          </tr></thead>
+          <tbody style="background:#001A0B;color:#F7F6F3">
+            <tr style="border-bottom:1px solid #003818"><td style="padding:10px 8px;color:#AAA79D">All text</td><td style="padding:10px 8px;font-family:'Saans Mono',monospace;font-size:13px;color:#F7F6F3">#F7F6F3</td></tr>
+            <tr style="border-bottom:1px solid #003818"><td style="padding:10px 8px;color:#AAA79D">Background</td><td style="padding:10px 8px;font-family:'Saans Mono',monospace;font-size:13px;color:#F7F6F3">#001A0B / #131010</td></tr>
+            <tr style="border-bottom:1px solid #003818"><td style="padding:10px 8px;color:#AAA79D">Rules, containers</td><td style="padding:10px 8px;font-family:'Saans Mono',monospace;font-size:13px;color:#F7F6F3">#003818 outline</td></tr>
+            <tr style="border-bottom:1px solid #003818"><td style="padding:10px 8px;color:#AAA79D">Eyebrows</td><td style="padding:10px 8px;font-family:'Saans Mono',monospace;font-size:13px;color:#F7F6F3">#00FF64</td></tr>
+            <tr><td style="padding:10px 8px;color:#AAA79D">Main idea / CTA</td><td style="padding:10px 8px;font-family:'Saans Mono',monospace;font-size:13px;color:#F7F6F3">#00FF64</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ TYPOGRAPHY ═══ -->
+<section id="typography">
+  <div class="site-wrap">
+    <div class="section-header">
+      <span class="eyebrow">§2–3 — Typography</span>
+      <h2 class="headline" style="font-size:clamp(36px,4vw,56px);margin-bottom:var(--sp-16);">The type stack</h2>
+      <p class="body-text">Three families. Serrif carries editorial weight. Saans handles UI and punchy headlines. Saans Mono is the voice of labels, eyebrows, and metadata.</p>
+    </div>
+
+    <!-- Specimens -->
+    <div class="type-specimen">
+      <div class="type-meta">
+        <span class="small">Large Headline</span>
+        <p class="type-desc">Serrif / Saans Bold<br>~96px · −0.02em<br>For hero moments and covers</p>
+      </div>
+      <div>
+        <p style="font-family:'Serrif',Georgia,serif;font-weight:300;font-size:clamp(48px,5vw,80px);letter-spacing:-.02em;line-height:1.0;color:var(--ink);text-wrap:balance">AEO is the new SEO</p>
+        <p style="font-family:'Saans','Helvetica Neue',Arial,sans-serif;font-weight:700;font-size:clamp(40px,4.5vw,72px);letter-spacing:-.02em;line-height:1.05;color:var(--ink);margin-top:var(--sp-16);text-wrap:balance">All hands</p>
+      </div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-meta">
+        <span class="small">Headline-5</span>
+        <p class="type-desc">Serrif Regular<br>40px · −0.02em<br>Sub-headlines, pull statements</p>
+      </div>
+      <p style="font-family:'Serrif',Georgia,serif;font-weight:400;font-size:40px;letter-spacing:-.02em;line-height:1.1;color:var(--ink);text-wrap:balance">Win more with less content.</p>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-meta">
+        <span class="small">Cover subhead</span>
+        <p class="type-desc">Saans Regular<br>24–28px · 0em<br>Under a headline on a cover. Saans — not Serrif.</p>
+      </div>
+      <p style="font-family:'Saans','Helvetica Neue',Arial,sans-serif;font-weight:400;font-size:26px;line-height:1.45;color:var(--ink)">AI-powered content operations for modern brands.</p>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-meta">
+        <span class="small">Editorial lead</span>
+        <p class="type-desc">Serrif Regular<br>20–24px · 0em<br>Intro / lead paragraphs in rich-text bodies</p>
+      </div>
+      <p class="lead">The content team that wins in 2026 runs on a system — not a headcount. AirOps gives every Content Engineer the tools to publish faster, rank higher, and prove ROI in a single dashboard.</p>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-meta">
+        <span class="small">Body</span>
+        <p class="type-desc">Saans Regular<br>18px · 0em · 1.5 leading<br>Running text. Bold for lead-ins.</p>
+      </div>
+      <p class="body-text">Running text is set in Saans at 18px with 1.5 line-height. The measure stays at ~65 characters — wide enough to read comfortably, narrow enough that the eye never loses the next line. <strong>Bold lead-ins use Saans Bold</strong> to anchor a paragraph without interrupting flow.</p>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-meta">
+        <span class="small">Eyebrow</span>
+        <p class="type-desc">Saans Mono Medium<br>~37.5% of headline<br>UPPERCASE · +0.06em (optional)<br>One per section opener.</p>
+      </div>
+      <span style="font-family:'Saans Mono',monospace;font-weight:500;font-size:21px;letter-spacing:.06em;text-transform:uppercase;color:#008038;">Customer Outcomes</span>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-meta">
+        <span class="small">Small / Label</span>
+        <p class="type-desc">Saans Mono Medium<br>14px · +0.08em<br>UPPERCASE labels, metadata</p>
+      </div>
+      <span style="font-family:'Saans Mono',monospace;font-weight:500;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#61605A;">Published June 2026 · 12 min read</span>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-meta">
+        <span class="small">Display figure</span>
+        <p class="type-desc">Serrif Regular<br>Large · −0.02em<br>Proportional figures (not tabular).<br>Pair with Saans Mono label.</p>
+      </div>
+      <div style="display:flex;align-items:baseline;gap:var(--sp-12)">
+        <span style="font-family:'Serrif',Georgia,serif;font-weight:400;font-size:80px;letter-spacing:-.02em;line-height:1;color:var(--ink)">71%</span>
+        <div>
+          <span style="font-family:'Saans Mono',monospace;font-weight:500;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);display:block">increase in</span>
+          <span style="font-family:'Saans Mono',monospace;font-weight:500;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);display:block">organic traffic</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Type rules -->
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ LOGO ═══ -->
+<section id="logo">
+  <div class="site-wrap">
+    <div class="section-header">
+      <span class="eyebrow">§5 — Logo</span>
+      <h2 class="headline" style="font-size:clamp(36px,4vw,56px);margin-bottom:var(--sp-16);">Wordmark &amp; symbol</h2>
+      <p class="body-text">The wordmark is a custom letterform — never re-typeset as live text. The symbol is a deep-green squircle tile. Use the provided SVG assets.</p>
+    </div>
+
+    <div class="logo-grid">
+      <!-- Light wordmark -->
+      <div class="logo-cell">
+        <svg viewBox="0 0 701 245" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:40px;color:#131010" aria-label="AirOps">
+          <path fill="currentColor" d="M644.695 197.57C609.739 197.57 586.261 177.484 584.957 148.528H617.043C617.826 158.702 628.521 169.658 644.695 169.658C657.738 169.658 666.869 163.919 666.869 155.571C666.869 148.528 661.39 144.354 652.26 142.528L631.13 138.093C610.261 133.659 591.218 123.485 591.218 96.8767C591.218 75.7466 610.522 58.0078 641.826 58.0078C671.303 58.0078 694.259 74.1814 697.651 101.05H665.564C663.999 90.0942 652.782 84.3552 641.826 84.3552C631.391 84.3552 623.826 89.0507 623.826 96.8767C623.826 103.398 629.565 107.311 638.434 109.137L659.564 113.572C682.52 118.268 700.259 127.137 700.259 154.789C700.259 178.266 678.086 197.57 644.695 197.57Z"/><path fill="currentColor" d="M445.32 244.5V60.0947H478.189V76.0075C485.493 65.312 500.624 58.0078 518.362 58.0078C556.97 58.0078 581.753 86.7029 581.753 127.659C581.753 168.875 555.405 197.57 516.015 197.57C500.102 197.57 485.754 191.31 478.189 181.658V244.5H445.32ZM512.363 169.136C533.493 169.136 548.101 152.702 548.101 127.659C548.101 102.877 533.493 86.4421 512.363 86.4421C490.711 86.4421 476.102 102.877 476.102 127.659C476.102 152.702 490.711 169.136 512.363 169.136Z"/><path fill="currentColor" d="M367.633 169.383C327.46 169.383 298.504 139.905 298.504 99.4712C298.504 59.298 327.46 29.8203 367.633 29.8203C407.545 29.8203 436.762 59.298 436.762 99.4712C436.762 139.905 407.545 169.383 367.633 169.383ZM367.633 140.949C388.763 140.949 403.372 123.992 403.372 99.4712C403.372 74.9499 388.502 58.2546 367.633 58.2546C345.981 58.2546 332.155 75.2108 332.155 99.4712C332.155 123.992 345.981 140.949 367.633 140.949Z"/><path fill="currentColor" d="M292.405 90.0942C288.492 89.3116 284.318 88.529 279.362 88.529C260.319 88.529 242.58 104.963 242.58 145.658V195.484H209.711V60.0947H242.58V94.8769C246 68 266.84 58.0078 283.275 58.0078C287.188 58.0078 289.796 58.2687 292.405 58.7904V90.0942Z"/><path fill="currentColor" d="M156.627 195.484V60.0946H189.496V195.484H156.627ZM172.791 44C160.663 44 151.073 34.4103 151.073 22C151.073 9.58973 160.663 0 172.791 0C185.201 0 194.791 9.58973 194.791 22C194.791 34.4103 185.201 44 172.791 44Z"/><path fill="currentColor" d="M64.6945 197.57C24.2604 197.57 0 168.875 0 127.659C0 86.4421 24.5213 58.0078 64.1727 58.0078C80.8681 58.0078 95.4765 65.0512 103.302 75.4858V60.0947H136.171V195.484H103.302V179.571C97.0417 189.745 82.1724 197.57 64.6945 197.57ZM69.39 169.136C91.0418 169.136 105.389 152.702 105.389 127.659C105.389 102.877 91.0418 86.4421 69.39 86.4421C47.7383 86.4421 33.3907 102.877 33.3907 127.659C33.3907 152.441 47.7383 169.136 69.39 169.136Z"/>
+        </svg>
+        <span class="logo-cell-label">Wordmark — light (#131010)</span>
+      </div>
+
+      <!-- Dark wordmark -->
+      <div class="logo-cell dark-cell">
+        <svg viewBox="0 0 701 245" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:40px;color:#F7F6F3" aria-label="AirOps">
+          <path fill="currentColor" d="M644.695 197.57C609.739 197.57 586.261 177.484 584.957 148.528H617.043C617.826 158.702 628.521 169.658 644.695 169.658C657.738 169.658 666.869 163.919 666.869 155.571C666.869 148.528 661.39 144.354 652.26 142.528L631.13 138.093C610.261 133.659 591.218 123.485 591.218 96.8767C591.218 75.7466 610.522 58.0078 641.826 58.0078C671.303 58.0078 694.259 74.1814 697.651 101.05H665.564C663.999 90.0942 652.782 84.3552 641.826 84.3552C631.391 84.3552 623.826 89.0507 623.826 96.8767C623.826 103.398 629.565 107.311 638.434 109.137L659.564 113.572C682.52 118.268 700.259 127.137 700.259 154.789C700.259 178.266 678.086 197.57 644.695 197.57Z"/><path fill="currentColor" d="M445.32 244.5V60.0947H478.189V76.0075C485.493 65.312 500.624 58.0078 518.362 58.0078C556.97 58.0078 581.753 86.7029 581.753 127.659C581.753 168.875 555.405 197.57 516.015 197.57C500.102 197.57 485.754 191.31 478.189 181.658V244.5H445.32ZM512.363 169.136C533.493 169.136 548.101 152.702 548.101 127.659C548.101 102.877 533.493 86.4421 512.363 86.4421C490.711 86.4421 476.102 102.877 476.102 127.659C476.102 152.702 490.711 169.136 512.363 169.136Z"/><path fill="currentColor" d="M367.633 169.383C327.46 169.383 298.504 139.905 298.504 99.4712C298.504 59.298 327.46 29.8203 367.633 29.8203C407.545 29.8203 436.762 59.298 436.762 99.4712C436.762 139.905 407.545 169.383 367.633 169.383ZM367.633 140.949C388.763 140.949 403.372 123.992 403.372 99.4712C403.372 74.9499 388.502 58.2546 367.633 58.2546C345.981 58.2546 332.155 75.2108 332.155 99.4712C332.155 123.992 345.981 140.949 367.633 140.949Z"/><path fill="currentColor" d="M292.405 90.0942C288.492 89.3116 284.318 88.529 279.362 88.529C260.319 88.529 242.58 104.963 242.58 145.658V195.484H209.711V60.0947H242.58V94.8769C246 68 266.84 58.0078 283.275 58.0078C287.188 58.0078 289.796 58.2687 292.405 58.7904V90.0942Z"/><path fill="currentColor" d="M156.627 195.484V60.0946H189.496V195.484H156.627ZM172.791 44C160.663 44 151.073 34.4103 151.073 22C151.073 9.58973 160.663 0 172.791 0C185.201 0 194.791 9.58973 194.791 22C194.791 34.4103 185.201 44 172.791 44Z"/><path fill="currentColor" d="M64.6945 197.57C24.2604 197.57 0 168.875 0 127.659C0 86.4421 24.5213 58.0078 64.1727 58.0078C80.8681 58.0078 95.4765 65.0512 103.302 75.4858V60.0947H136.171V195.484H103.302V179.571C97.0417 189.745 82.1724 197.57 64.6945 197.57ZM69.39 169.136C91.0418 169.136 105.389 152.702 105.389 127.659C105.389 102.877 91.0418 86.4421 69.39 86.4421C47.7383 86.4421 33.3907 102.877 33.3907 127.659C33.3907 152.441 47.7383 169.136 69.39 169.136Z"/>
+        </svg>
+        <span class="logo-cell-label">Wordmark — dark (#F7F6F3)</span>
+      </div>
+
+      <!-- Symbol light -->
+      <div class="logo-cell" style="flex-direction:row;align-items:center;gap:var(--sp-32)">
+        <div class="symbol-tile">ao</div>
+        <div>
+          <span class="small mb-8" style="display:block">App symbol</span>
+          <p style="font-size:14px;color:var(--gray);line-height:1.5">Deep-green (#001A0B) squircle tile.<br>Corner radius ≈ 22% of side. Colors fixed — do not recolor.</p>
+        </div>
+      </div>
+
+      <!-- Logo rules -->
+      <div class="logo-cell">
+        <span class="small mb-8" style="display:block">Usage rules</span>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:var(--sp-8)">
+          <li style="font-size:14px;color:var(--gray);padding-left:16px;position:relative"><span style="position:absolute;left:0;color:var(--eyebrow-green)">•</span>Clear space ≥ cap-height on all sides</li>
+          <li style="font-size:14px;color:var(--gray);padding-left:16px;position:relative"><span style="position:absolute;left:0;color:var(--eyebrow-green)">•</span>Never stretch, rotate, skew, or add effects</li>
+          <li style="font-size:14px;color:var(--gray);padding-left:16px;position:relative"><span style="position:absolute;left:0;color:var(--eyebrow-green)">•</span>Never re-typeset the wordmark as live text</li>
+          <li style="font-size:14px;color:var(--gray);padding-left:16px;position:relative"><span style="position:absolute;left:0;color:var(--eyebrow-green)">•</span>Only sanctioned recolor: light/dark reversal of wordmark</li>
+          <li style="font-size:14px;color:var(--gray);padding-left:16px;position:relative"><span style="position:absolute;left:0;color:var(--eyebrow-green)">•</span>No placement on busy or low-contrast backgrounds</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ COMPONENTS ═══ -->
+<section id="components">
+  <div class="site-wrap">
+    <div class="section-header">
+      <span class="eyebrow">§4 &amp; §7 — Components</span>
+      <h2 class="headline" style="font-size:clamp(36px,4vw,56px);margin-bottom:var(--sp-16);">Corners, buttons &amp; cards</h2>
+      <p class="body-text">Mixed corners are intentional. Containers stay sharp. The accent pill is fully rounded. Stat cards use 24px radius — the default rounded radius.</p>
+    </div>
+
+    <!-- Corners -->
+    <h3 class="headline-punchy mb-24" style="font-size:20px">Corner system</h3>
+    <div class="component-row">
+      <div class="component-cell">
+        <div style="width:80px;height:80px;background:var(--canvas);border:1px solid var(--stone);border-radius:0"></div>
+        <span class="component-label">Container — sharp (0px)</span>
+      </div>
+      <div class="component-cell">
+        <div style="width:80px;height:80px;background:#00FF64;border-radius:999px"></div>
+        <span class="component-label">Accent pill — stadium (999px)</span>
+      </div>
+      <div class="component-cell">
+        <div style="width:80px;height:80px;background:#001A0B;border-radius:22%;display:flex;align-items:center;justify-content:center;color:#F7F6F3;font-family:'Serrif',Georgia,serif;font-size:18px">ao</div>
+        <span class="component-label">Symbol — squircle (~22%)</span>
+      </div>
+      <div class="component-cell">
+        <div style="width:80px;height:80px;background:#00EAFF;border-radius:24px"></div>
+        <span class="component-label">Stat card — 24px radius</span>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <h3 class="headline-punchy mt-48 mb-24" style="font-size:20px">Buttons</h3>
+    <p class="body-text mb-24" style="font-size:15px;color:var(--gray)">Labels are Saans Regular — never Bold. Pill shape. Primary counts as the view's one accent moment.</p>
+    <div class="component-row">
+      <div class="component-cell">
+        <button class="btn btn-primary">Book a demo</button>
+        <span class="component-label">Primary — #00FF64 fill, #131010 text</span>
+      </div>
+      <div class="component-cell">
+        <button class="btn btn-dark">Start free</button>
+        <span class="component-label">Solid dark — when accent is spent</span>
+      </div>
+      <div class="component-cell">
+        <button class="btn btn-secondary">See it live</button>
+        <span class="component-label">Secondary — transparent, 1px border</span>
+      </div>
+    </div>
+
+    <!-- Accent pill -->
+    <h3 class="headline-punchy mt-48 mb-24" style="font-size:20px">Accent pill</h3>
+    <p class="body-text mb-24" style="font-size:15px;color:var(--gray)">The single most important element in a composition. One per view. Zero is correct when there is no CTA.</p>
+    <div class="component-row">
+      <div class="component-cell">
+        <span class="accent-pill">The main idea lives here</span>
+        <span class="component-label">Fully rounded, #00FF64 — once per view</span>
+      </div>
+    </div>
+
+    <!-- Container / box -->
+    <h3 class="headline-punchy mt-48 mb-24" style="font-size:20px">Container / box</h3>
+    <p class="body-text mb-24" style="font-size:15px;color:var(--gray)">Sharp, 1px stone outline. Used sparingly to frame a specific element — never to wrap running body text. Let type and space do the work.</p>
+    <div class="component-row">
+      <div class="container-box">
+        <span class="small mb-8" style="display:block">Key metric</span>
+        <span style="font-family:'Serrif',Georgia,serif;font-size:48px;font-weight:400;letter-spacing:-.02em">3×</span>
+        <p style="font-size:14px;color:var(--gray);margin-top:8px">faster to publish</p>
+      </div>
+    </div>
+
+    <!-- Stat cards -->
+    <h3 class="headline-punchy mt-64 mb-8" style="font-size:20px">Customer stat cards</h3>
+    <p class="body-text mb-32" style="font-size:15px;color:var(--gray)">The one sanctioned home for bright/fluorescent fills. Three things top to bottom: metric (Serrif Regular), descriptor (Saans), logo. A trio = two vibrant + one neutral. No shadows, no strokes. Upright in decks; rotation is social-only.</p>
+
+    <div class="stat-cards-row">
+      <!-- Green card -->
+      <div class="stat-card card-green card-dark-text">
+        <div>
+          <div class="stat-card-metric">71%</div>
+          <div class="stat-card-desc">increase in organic traffic within 90 days</div>
+        </div>
+        <div class="stat-card-logo">Customer Co.</div>
+      </div>
+      <!-- Orange card -->
+      <div class="stat-card" style="background:#FF6337">
+        <div>
+          <div class="stat-card-metric" style="color:var(--ink)">3×</div>
+          <div class="stat-card-desc" style="color:var(--ink)">more content published per engineer per week</div>
+        </div>
+        <div class="stat-card-logo" style="color:var(--ink)">Brand Inc.</div>
+      </div>
+      <!-- Neutral card -->
+      <div class="stat-card card-neutral">
+        <div>
+          <div class="stat-card-metric">+7×</div>
+          <div class="stat-card-desc" style="color:var(--gray)">ROI on content operations investment</div>
+        </div>
+        <div class="stat-card-logo" style="color:var(--gray-2)">Studio Ltd.</div>
+      </div>
+    </div>
+    <p style="font-size:13px;color:var(--gray-2);margin-top:var(--sp-12);font-family:'Saans Mono',monospace;letter-spacing:.04em">Two vibrant + one neutral. Hue combo rotates across cards and decks.</p>
+
+    <!-- Dark surface demo -->
+    <h3 class="headline-punchy mt-64 mb-24" style="font-size:20px">Dark surface</h3>
+    <p class="body-text mb-24" style="font-size:15px;color:var(--gray)">Dark (#001A0B) is a deliberate choice for covers and section breaks — not a default. Eyebrows and the accent both brighten to #00FF64.</p>
+    <div class="dark-surface">
+      <span class="eyebrow">Section break</span>
+      <h2 class="headline" style="font-size:clamp(32px,4vw,56px);color:#F7F6F3;margin-bottom:var(--sp-16)">Built for the next era of content</h2>
+      <p class="body-text" style="color:#F7F6F3;margin-bottom:var(--sp-32)">AirOps connects your brand, your team, and your output pipeline into a single operating system.</p>
+      <button class="btn btn-primary">See it live</button>
+    </div>
+
+    <!-- Lists -->
+    <h3 class="headline-punchy mt-64 mb-24" style="font-size:20px">Lists</h3>
+    <div class="col-2">
+      <div>
+        <span class="small mb-16" style="display:block">Unordered — standard disc</span>
+        <ul style="list-style:disc;padding-left:20px;display:flex;flex-direction:column;gap:var(--sp-8)">
+          <li class="body-text" style="color:var(--ink)"><strong>Brand Kit.</strong> Your voice, identity, and guidelines in one place.</li>
+          <li class="body-text" style="color:var(--ink)"><strong>Grids.</strong> Scalable workflows that ship content at volume.</li>
+          <li class="body-text" style="color:var(--ink)"><strong>AEO.</strong> Optimize for how AI answers — not just how it ranks.</li>
+        </ul>
+        <p style="font-size:13px;color:var(--gray-2);margin-top:var(--sp-12);font-family:'Saans Mono',monospace;letter-spacing:.04em">Standard disc • in #61605A. Bold lead-in in #131010.</p>
+      </div>
+      <div>
+        <span class="small mb-16" style="display:block">Ordered — Saans Mono numbers</span>
+        <ol style="list-style:none;display:flex;flex-direction:column;gap:var(--sp-8);counter-reset:list">
+          <li class="body-text" style="color:var(--ink);display:flex;gap:var(--sp-12);counter-increment:list"><span style="font-family:'Saans Mono',monospace;font-size:13px;color:var(--eyebrow-green);font-weight:500;min-width:24px;padding-top:3px">01</span>Define your brand in AirOps Brand Kit.</li>
+          <li class="body-text" style="color:var(--ink);display:flex;gap:var(--sp-12);counter-increment:list"><span style="font-family:'Saans Mono',monospace;font-size:13px;color:var(--eyebrow-green);font-weight:500;min-width:24px;padding-top:3px">02</span>Build your content workflows in Grids.</li>
+          <li class="body-text" style="color:var(--ink);display:flex;gap:var(--sp-12);counter-increment:list"><span style="font-family:'Saans Mono',monospace;font-size:13px;color:var(--eyebrow-green);font-weight:500;min-width:24px;padding-top:3px">03</span>Measure visibility with AEO analytics.</li>
+        </ol>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ LAYOUT ═══ -->
+<section id="layout">
+  <div class="site-wrap">
+    <div class="section-header">
+      <span class="eyebrow">§8–9 — Layout &amp; spacing</span>
+      <h2 class="headline" style="font-size:clamp(36px,4vw,56px);margin-bottom:var(--sp-16);">Module rhythm &amp; spacing scale</h2>
+      <p class="body-text">Every composition follows one repeating module: eyebrow → headline → body → one primary CTA. Base unit 4px. Rhythm is what reads as designed.</p>
+    </div>
+
+    <!-- Section module demo -->
+    <h3 class="headline-punchy mb-24" style="font-size:20px">Section module</h3>
+    <div style="padding:var(--sp-64) var(--sp-64);background:var(--canvas);border:1px solid var(--stone);max-width:720px">
+      <span class="eyebrow">Product — one per opener</span>
+      <h2 class="headline" style="font-size:48px;margin-bottom:var(--sp-16);">Write once. Publish everywhere.</h2>
+      <p class="lead" style="margin-bottom:var(--sp-32);">AirOps Grids let your Content Engineers run structured workflows at scale — no engineering bottleneck, no brand drift.</p>
+      <a class="btn btn-primary" href="#">Book a demo</a>
+    </div>
+
+    <!-- Spacing scale -->
+    <h3 class="headline-punchy mt-64 mb-24" style="font-size:20px">Spacing scale — base 4px</h3>
+    <div class="spacing-grid">
+      <div class="spacing-row"><span class="spacing-token">sp-4</span><span class="spacing-val">4px</span><div class="spacing-bar" style="width:4px"></div></div>
+      <div class="spacing-row"><span class="spacing-token">sp-8</span><span class="spacing-val">8px</span><div class="spacing-bar" style="width:8px"></div></div>
+      <div class="spacing-row"><span class="spacing-token">sp-12</span><span class="spacing-val">12px</span><div class="spacing-bar" style="width:12px"></div></div>
+      <div class="spacing-row"><span class="spacing-token">sp-16</span><span class="spacing-val">16px</span><div class="spacing-bar" style="width:16px"></div></div>
+      <div class="spacing-row"><span class="spacing-token">sp-24</span><span class="spacing-val">24px</span><div class="spacing-bar" style="width:24px"></div></div>
+      <div class="spacing-row"><span class="spacing-token">sp-32</span><span class="spacing-val">32px</span><div class="spacing-bar" style="width:32px"></div></div>
+      <div class="spacing-row"><span class="spacing-token">sp-48</span><span class="spacing-val">48px</span><div class="spacing-bar" style="width:48px"></div></div>
+      <div class="spacing-row"><span class="spacing-token">sp-64</span><span class="spacing-val">64px</span><div class="spacing-bar" style="width:64px"></div></div>
+      <div class="spacing-row"><span class="spacing-token">sp-96</span><span class="spacing-val">96px</span><div class="spacing-bar" style="width:96px"></div></div>
+      <div class="spacing-row"><span class="spacing-token">sp-128</span><span class="spacing-val">128px</span><div class="spacing-bar" style="width:128px"></div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ VOICE ═══ -->
+<section id="voice">
+  <div class="site-wrap">
+    <div class="section-header">
+      <span class="eyebrow">§10 — Voice &amp; copy</span>
+      <h2 class="headline" style="font-size:clamp(36px,4vw,56px);margin-bottom:var(--sp-16);">Direct, sharp, expert, human</h2>
+      <p class="body-text">Short sentences. Strong verbs. Active voice. Lead with value. Sentence case for headlines.</p>
+    </div>
+
+    <div class="do-dont-grid mb-48">
+      <div class="do-col">
+        <h3 class="headline-punchy mb-16" style="font-size:18px;color:var(--eyebrow-green)">Do</h3>
+        <div class="rule-item do">
+          <span class="rule-head do-head">Sentence case</span>
+          <p class="rule-text">"AEO is the new SEO" — not "AEO Is The New SEO"</p>
+        </div>
+        <div class="rule-item do">
+          <span class="rule-head do-head">Short CTA imperatives</span>
+          <p class="rule-text">"Book a demo" · "Start free" · "See it live"</p>
+        </div>
+        <div class="rule-item do">
+          <span class="rule-head do-head">Product names</span>
+          <p class="rule-text">AirOps, Quill, Grids, Brand Kit, AEO, Offsite, Content Engineering</p>
+        </div>
+        <div class="rule-item do">
+          <span class="rule-head do-head">Oxford comma &amp; en dash</span>
+          <p class="rule-text">Brands, teams, and workflows. Pages 10–24.</p>
+        </div>
+        <div class="rule-item do">
+          <span class="rule-head do-head">Customer role</span>
+          <p class="rule-text">"Content Engineer" — not "content creator" or "marketer"</p>
+        </div>
+      </div>
+      <div class="dont-col">
+        <h3 class="headline-punchy mb-16" style="font-size:18px;color:#B83818">Don't</h3>
+        <div class="rule-item dont">
+          <span class="rule-head dont-head">Banned words</span>
+          <p class="rule-text">synergize, robust, comprehensive, seamless, leverage (verb), supercharge, groundbreaking, revolutionary</p>
+        </div>
+        <div class="rule-item dont">
+          <span class="rule-head dont-head">Em dashes</span>
+          <p class="rule-text">Use an en dash (–) for ranges and pauses — avoid em dashes (—)</p>
+        </div>
+        <div class="rule-item dont">
+          <span class="rule-head dont-head">AI SEO / LLM SEO</span>
+          <p class="rule-text">Use "AEO" — not "AI SEO" or "LLM SEO"</p>
+        </div>
+        <div class="rule-item dont">
+          <span class="rule-head dont-head">Passive voice</span>
+          <p class="rule-text">"Results are delivered" → "We deliver results"</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ CHECKLIST ═══ -->
+<section id="checklist">
+  <div class="site-wrap">
+    <div class="section-header">
+      <span class="eyebrow">§11 — Pre-output checklist</span>
+      <h2 class="headline" style="font-size:clamp(36px,4vw,56px);margin-bottom:var(--sp-16);">Run before finalizing any visual</h2>
+      <p class="body-text">Fifteen checkpoints. If any one fails, the output is off-brand.</p>
+    </div>
+
+    <ul class="checklist">
+      <li><span class="check-num">01</span><span>Surface is <strong>light (#FFFFFF or #F7F6F3 warm alt)</strong> unless dark is a deliberate cover/break?</span></li>
+      <li><span class="check-num">02</span><span><strong>At most one #00FF64 moment</strong> (main idea or primary CTA) — zero is fine without a CTA; nothing else neon?</span></li>
+      <li><span class="check-num">03</span><span><strong>One eyebrow</strong> on the section opener — Saans Mono Medium, uppercase, green?</span></li>
+      <li><span class="check-num">04</span><span>Text is <strong>#131010 (light) / #F7F6F3 (dark)</strong>; neutrals are <strong>warm</strong>, not green-tinted?</span></li>
+      <li><span class="check-num">05</span><span>Containers <strong>sharp and sparing</strong> (not wrapping running text); accent pill <strong>fully rounded</strong>; symbol a squircle?</span></li>
+      <li><span class="check-num">06</span><span>Headline <strong>Serrif</strong> (editorial) or <strong>Saans Bold</strong> (punchy); cover <strong>subhead in Saans</strong>; editorial lead in Serrif?</span></li>
+      <li><span class="check-num">07</span><span>Display figures in <strong>Serrif Regular</strong> (not Saans Bold), with <strong>Saans Mono</strong> labels? Buttons in <strong>Saans Regular</strong>?</span></li>
+      <li><span class="check-num">08</span><span>Bulleted lists use a <strong>standard disc •</strong> (quiet, not green squares); ordered lists use mono numbers?</span></li>
+      <li><span class="check-num">09</span><span>Only the <strong>provided fonts</strong> referenced — no SerrifVF, no Saans Medium, no DM Mono?</span></li>
+      <li><span class="check-num">10</span><span>Logo not recolored or distorted; correct light/dark variant; clear space respected?</span></li>
+      <li><span class="check-num">11</span><span>Hues default to <strong>green</strong>? Any cyan/blue/magenta/orange/yellow used sparingly, evenly, never as a second brand color?</span></li>
+      <li><span class="check-num">12</span><span>Every color is an <strong>exact palette token</strong> — no off-palette grey/green/tint, no made-up or opacity-faked shade?</span></li>
+      <li><span class="check-num">13</span><span>Stat cards: mode-aware fill; hue combo rotates; a trio is <strong>two vibrant + one neutral</strong> (neutral visible); upright in decks?</span></li>
+      <li><span class="check-num">14</span><span>Canvas <strong>filled</strong> with consistent module rhythm — no floating or top-loaded dead space?</span></li>
+      <li><span class="check-num">15</span><span><strong>No widows or orphans</strong>; headlines balanced; measure ≤ ~75 chars; aligned numbers set tabular?</span></li>
+    </ul>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ─── Footer ─── -->
+<footer class="footer">
+  <div style="display:flex;align-items:center;gap:var(--sp-24)">
+    <svg viewBox="0 0 701 245" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:20px;color:#AAA79D" aria-label="AirOps">
+      <path fill="currentColor" d="M644.695 197.57C609.739 197.57 586.261 177.484 584.957 148.528H617.043C617.826 158.702 628.521 169.658 644.695 169.658C657.738 169.658 666.869 163.919 666.869 155.571C666.869 148.528 661.39 144.354 652.26 142.528L631.13 138.093C610.261 133.659 591.218 123.485 591.218 96.8767C591.218 75.7466 610.522 58.0078 641.826 58.0078C671.303 58.0078 694.259 74.1814 697.651 101.05H665.564C663.999 90.0942 652.782 84.3552 641.826 84.3552C631.391 84.3552 623.826 89.0507 623.826 96.8767C623.826 103.398 629.565 107.311 638.434 109.137L659.564 113.572C682.52 118.268 700.259 127.137 700.259 154.789C700.259 178.266 678.086 197.57 644.695 197.57Z"/><path fill="currentColor" d="M445.32 244.5V60.0947H478.189V76.0075C485.493 65.312 500.624 58.0078 518.362 58.0078C556.97 58.0078 581.753 86.7029 581.753 127.659C581.753 168.875 555.405 197.57 516.015 197.57C500.102 197.57 485.754 191.31 478.189 181.658V244.5H445.32ZM512.363 169.136C533.493 169.136 548.101 152.702 548.101 127.659C548.101 102.877 533.493 86.4421 512.363 86.4421C490.711 86.4421 476.102 102.877 476.102 127.659C476.102 152.702 490.711 169.136 512.363 169.136Z"/><path fill="currentColor" d="M367.633 169.383C327.46 169.383 298.504 139.905 298.504 99.4712C298.504 59.298 327.46 29.8203 367.633 29.8203C407.545 29.8203 436.762 59.298 436.762 99.4712C436.762 139.905 407.545 169.383 367.633 169.383ZM367.633 140.949C388.763 140.949 403.372 123.992 403.372 99.4712C403.372 74.9499 388.502 58.2546 367.633 58.2546C345.981 58.2546 332.155 75.2108 332.155 99.4712C332.155 123.992 345.981 140.949 367.633 140.949Z"/><path fill="currentColor" d="M292.405 90.0942C288.492 89.3116 284.318 88.529 279.362 88.529C260.319 88.529 242.58 104.963 242.58 145.658V195.484H209.711V60.0947H242.58V94.8769C246 68 266.84 58.0078 283.275 58.0078C287.188 58.0078 289.796 58.2687 292.405 58.7904V90.0942Z"/><path fill="currentColor" d="M156.627 195.484V60.0946H189.496V195.484H156.627ZM172.791 44C160.663 44 151.073 34.4103 151.073 22C151.073 9.58973 160.663 0 172.791 0C185.201 0 194.791 9.58973 194.791 22C194.791 34.4103 185.201 44 172.791 44Z"/><path fill="currentColor" d="M64.6945 197.57C24.2604 197.57 0 168.875 0 127.659C0 86.4421 24.5213 58.0078 64.1727 58.0078C80.8681 58.0078 95.4765 65.0512 103.302 75.4858V60.0947H136.171V195.484H103.302V179.571C97.0417 189.745 82.1724 197.57 64.6945 197.57ZM69.39 169.136C91.0418 169.136 105.389 152.702 105.389 127.659C105.389 102.877 91.0418 86.4421 69.39 86.4421C47.7383 86.4421 33.3907 102.877 33.3907 127.659C33.3907 152.441 47.7383 169.136 69.39 169.136Z"/>
+    </svg>
+    <span class="footer-note">Brand Visual Guide — 2.0 — 2026 Refresh</span>
+  </div>
+  <span class="footer-note">Warm-neutral foundation · Neon-green accent · Serrif + Saans + Saans Mono</span>
+</footer>
+
+</body>
+</html>

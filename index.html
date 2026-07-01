@@ -106,7 +106,7 @@
     display: grid; gap: 2px; background: var(--stone);
   }
   .logo-grid { grid-template-columns: 1fr 1fr; }
-  .subbrand-grid { grid-template-columns: repeat(3,1fr); margin-top: 2px; }
+  .subbrand-grid { grid-template-columns: repeat(4,1fr); margin-top: 2px; }
   .logo-cell {
     background: var(--white); padding: 52px 48px;
     display: flex; flex-direction: column; justify-content: space-between;
@@ -293,7 +293,7 @@
       </div>
       <!-- Symbol -->
       <div class="logo-cell canvas" style="flex-direction:row;align-items:center;gap:40px">
-        <div class="symbol-squircle">ao</div>
+        <img src="logos/airops-symbol.svg" alt="AirOps symbol" style="width:72px;height:72px;flex-shrink:0">
         <div style="flex:1">
           <p style="font-size:15px;color:var(--gray);line-height:1.6;max-width:32ch">Deep-green (#001A0B) squircle. Corner radius ≈ 22% of side. Colors fixed — do not recolor.</p>
         </div>
@@ -315,16 +315,20 @@
     <p class="subsection-title">Sub-brand lockups</p>
     <div class="subbrand-grid">
       <div class="subbrand-cell">
-        <div><div class="lockup-airops">airops</div><div class="lockup-serif">University</div></div>
+        <img src="logos/airops-champion-logo.svg" alt="AirOps Champion" style="width:100%;max-width:220px;height:auto;display:block">
+        <span class="subbrand-name">Champion · airops at 50% opacity</span>
+      </div>
+      <div class="subbrand-cell">
+        <img src="logos/airops-quill-logo.svg" alt="AirOps Quill" style="width:100%;max-width:220px;height:auto;display:block">
+        <span class="subbrand-name">Quill · double-circle descriptor</span>
+      </div>
+      <div class="subbrand-cell">
+        <img src="logos/airops-research-logo.svg" alt="AirOps Re:search" style="width:100%;max-width:220px;height:auto;display:block">
+        <span class="subbrand-name">Re:search · spiral mark</span>
+      </div>
+      <div class="subbrand-cell">
+        <img src="logos/airops-university-logo.svg" alt="AirOps University" style="width:100%;max-width:220px;height:auto;display:block">
         <span class="subbrand-name">University · Serrif descriptor</span>
-      </div>
-      <div class="subbrand-cell">
-        <div><div class="lockup-airops">airops</div><div class="lockup-serif">Re:search</div></div>
-        <span class="subbrand-name">Re:search · Serrif descriptor</span>
-      </div>
-      <div class="subbrand-cell">
-        <div><div class="lockup-airops" style="color:var(--gray)">airops</div><div class="lockup-sans">Champion</div></div>
-        <span class="subbrand-name">Champion · Saans Bold, gray airops</span>
       </div>
     </div>
   </div>
